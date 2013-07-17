@@ -18,15 +18,17 @@
 #
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
+    sides = sorted([a, b, c])
+    unique_sides = set(sides)
+    
+    
+    
     result = 'scalene' #default return
-    
-    if a == b: result = 'isosceles'
-    
-    if b == c: result = 'isosceles' 
-    
-    if a == c:
+
+    if len(unique_sides) == 1:
+        result = 'equilateral'
+    elif len(unique_sides) == 2:
         result = 'isosceles'
-        if a == b: result = 'equilateral'
     
     return result
     
