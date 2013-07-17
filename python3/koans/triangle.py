@@ -19,9 +19,13 @@
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
     sides = sorted([a, b, c])
-    unique_sides = set(sides)
+    unique_sides = sorted(set(sides))
     
-    
+    # Set up exception handling
+    if unique_sides[0] <= 0:
+        raise TriangleError('Invalid triangle: Sides cannot be 0 or less')
+    if sides[2] >= sides[0] + sides[1]:
+        raise TriangleError('Invalid triangle: sum of 2 sides cannot be greater than remaining side')
     
     result = 'scalene' #default return
 
