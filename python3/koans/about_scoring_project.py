@@ -34,7 +34,28 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    set_of_dice = set(dice)
+    balance = 0
+    
+    for numberSearch in set_of_dice:
+        theCounter = 0
+        setCount = 0
+        for number in dice:
+            if numberSearch == number:
+                theCounter = theCounter+1
+                if numberSearch == 1: balance = balance + 100 # For every 1
+                if numberSearch == 5: balance = balance + 50 # for every 5
+                
+                # The logic if we find sets
+                if ((theCounter > 2) and ((theCounter % 3) == 0)):
+                    setCount = setCount+1
+                    #print('set count = %d' % (setCount))
+                    if numberSearch == 1: balance = balance + 700
+                    elif numberSearch == 5: balance = balance + 350
+                    else: balance = balance + (numberSearch * 100 * setCount)
+    return balance
+
+    
 
 class AboutScoringProject(Koan):
     def test_score_of_an_empty_list_is_zero(self):
