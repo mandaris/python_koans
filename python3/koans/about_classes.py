@@ -10,10 +10,11 @@ class AboutClasses(Koan):
 
     def test_instances_of_classes_can_be_created_adding_parentheses(self):
         fido = self.Dog()
-        self.assertEqual(__, fido.__class__)
+        #self.assertEqual(Dog, fido.__class__)
+        self.assertRegexpMatches(str(fido.__class__), 'Dog')
 
     def test_classes_have_docstrings(self):
-        self.assertRegexpMatches(self.Dog.__doc__, __)
+        self.assertRegexpMatches(self.Dog.__doc__, 'walkies')
 
     # ------------------------------------------------------------------
 
@@ -26,7 +27,7 @@ class AboutClasses(Koan):
 
     def test_init_method_is_the_constructor(self):
         dog = self.Dog2()
-        self.assertEqual(__, dog._name)
+        self.assertEqual('Paul', dog._name)
 
     def test_private_attributes_are_not_really_private(self):
         dog = self.Dog2()
