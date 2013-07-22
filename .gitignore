@@ -3,3 +3,5 @@
 .DS_Store
 answers
 .hg
+koans.sublime-project
+koans.sublime-workspace
