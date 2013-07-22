@@ -91,7 +91,7 @@ class AboutClasses(Koan):
         fido = self.Dog4()
 
         fido.name = "Fido"
-        self.assertEqual(__, fido.name)
+        self.assertEqual('Fido', fido.name)
 
     # ------------------------------------------------------------------
 
@@ -105,20 +105,21 @@ class AboutClasses(Koan):
 
     def test_init_provides_initial_values_for_instance_variables(self):
         fido = self.Dog5("Fido")
-        self.assertEqual(__, fido.name)
+        self.assertEqual('Fido', fido.name)
 
     def test_args_must_match_init(self):
-        with self.assertRaises(___):
+        with self.assertRaises(TypeError):
             self.Dog5()
 
         # THINK ABOUT IT:
         # Why is this so?
+        # The initializer wasn't called properly
 
     def test_different_objects_have_difference_instance_variables(self):
         fido = self.Dog5("Fido")
         rover = self.Dog5("Rover")
 
-        self.assertEqual(__, rover.name == fido.name)
+        self.assertEqual(False, rover.name == fido.name)
 
     # ------------------------------------------------------------------
 
